@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:noucav/config.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -7,7 +8,9 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  void onLoginFn() {}
+  void onLoginFn(BuildContext context) {
+    context.go('/home');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,8 @@ class LoginScreen extends StatelessWidget {
             controller: _passwordController,
           ),
           const SizedBox(height: 32.0),
-          ElevatedButton(onPressed: onLoginFn, child: const Text('LOGIN')),
+          ElevatedButton(
+              onPressed: () => onLoginFn(context), child: const Text('LOGIN')),
         ]),
       )),
     ));
