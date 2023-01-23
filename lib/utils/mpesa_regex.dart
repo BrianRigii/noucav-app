@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 MpesaMessageDetails? processMpesaMessage(String message) {
   final pattern = RegExp(
       r'([A-Z0-9]+) Confirmed.*Ksh([0-9,.]+) sent.* on ([0-9/]+) at ([0-9:]+ [A-Z]+)');
@@ -8,7 +10,10 @@ MpesaMessageDetails? processMpesaMessage(String message) {
     final amount = match.group(2);
     final dateString = match.group(3);
     final timeString = match.group(4);
-    final dateTime = DateTime.parse('$dateString $timeString');
+
+    String dateTimeString = '$dateString $timeString';
+    DateTime dateTime = DateFormat("dd/M/yy hh:mm a").parse(dateTimeString);
+
     return MpesaMessageDetails(
       code: code!,
       amount: amount!,
@@ -28,4 +33,8 @@ class MpesaMessageDetails {
     required this.amount,
     required this.dateTime,
   });
+
+  @override
+  String toString() =>
+      'MpesaMessageDetails(code: $code, amount: $amount, dateTime: $dateTime)';
 }
