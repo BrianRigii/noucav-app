@@ -7,7 +7,7 @@ MpesaMessageDetails? processMpesaMessage(String message) {
 
   if (match != null) {
     final code = match.group(1);
-    final amount = match.group(2);
+    final amount = double.parse(match.group(2)?.replaceAll(",", "") ?? '0');
     final dateString = match.group(3);
     final timeString = match.group(4);
 
@@ -16,7 +16,7 @@ MpesaMessageDetails? processMpesaMessage(String message) {
 
     return MpesaMessageDetails(
       code: code!,
-      amount: amount!,
+      amount: amount,
       dateTime: dateTime,
     );
   }
@@ -25,7 +25,7 @@ MpesaMessageDetails? processMpesaMessage(String message) {
 
 class MpesaMessageDetails {
   final String code;
-  final String amount;
+  final num amount;
   final DateTime dateTime;
 
   MpesaMessageDetails({

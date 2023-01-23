@@ -52,6 +52,7 @@ class _PaymentsScreenState extends State<PaymentsScreen> {
                     maxLines: 5,
                     controller: _mpesaMessageController,
                     decoration: Config.input(label: 'Mpesa Message')),
+                const SizedBox(height: 8.0),
                 ElevatedButton(
                   onPressed: _processMessage,
                   child: const Text('Process Message'),
