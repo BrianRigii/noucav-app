@@ -20,7 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        // Account Detail and Greetings
         // Periods should show here
+        //transactions
+        //services
 
         ElevatedButton(
             onPressed: _navigateToPayments, child: const Text('Payments')),
