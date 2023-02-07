@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class Config {
+  static String appUrl = 'https://noucav-production.up.railway.app/';
+
   static ThemeData themeData = ThemeData(
     primarySwatch: Colors.orange,
     buttonTheme: const ButtonThemeData(

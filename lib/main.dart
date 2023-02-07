@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:noucav/config.dart';
+import 'package:noucav/initialiser.dart';
 import 'package:noucav/routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  Initialiser().init();
 }
 
 class MyApp extends StatelessWidget {

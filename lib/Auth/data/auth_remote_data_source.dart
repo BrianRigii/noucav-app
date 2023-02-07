@@ -1,9 +1,10 @@
 import 'package:noucav/Dio/dio_api.dart';
+import 'package:noucav/config.dart';
 
 import '../entities/user_model.dart';
 
 class AuthRemoteDataSource extends DioApi {
-  AuthRemoteDataSource() : super('https://api.noucav.com/api/v1/auth');
+  AuthRemoteDataSource() : super(Config.appUrl);
 
   Future<User> login(String email, String password) async {
     final response = await dio.post(
